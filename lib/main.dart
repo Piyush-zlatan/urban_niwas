@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:urban_niwas/login.dart';
-import 'package:urban_niwas/register.dart';
+import 'package:urban_niwas/Dashboard.dart';
+//import 'package:urban_niwas/login.dart';
+//import 'package:urban_niwas/register.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyRegisterPage(title: 'Flutter Login'),
+      home: Dashboard(),
     );
   }
 }

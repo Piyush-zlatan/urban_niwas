@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:urban_niwas/register.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -52,11 +53,18 @@ class _MyHomePageState extends State<MyHomePage> {
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        onPressed: () {},
         child: Text("Register",
             textAlign: TextAlign.center,
             style: style.copyWith(
-                color: Colors.white, fontWeight: FontWeight.bold)),
+                color: Colors.white, 
+                fontWeight: FontWeight.bold)
+          ),
+        onPressed: () {
+          Navigator.of(context)
+          .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+              return new MyRegisterPage();
+            }));
+        },
       ),
     );
 

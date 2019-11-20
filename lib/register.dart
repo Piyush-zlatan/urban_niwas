@@ -10,6 +10,8 @@ class MyRegisterPage extends StatefulWidget {
 class _MyRegisterPageState extends State<MyRegisterPage> {
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
 
+  String _currentItem = null;
+
   @override
   Widget build(BuildContext context) {
     final emailField = TextField(
@@ -40,6 +42,23 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
               OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
       keyboardType: TextInputType.number,
     );
+
+    final dropDown = new DropdownButton<String>(
+      value: _currentItem,
+      items: <String>['A','B','C','D'].map((String _selectedLocation){
+        return new DropdownMenuItem<String>(
+          value:_selectedLocation,
+          child: new Text(_selectedLocation),
+        );
+      }).toList(),
+      hint: Text("Choose Your Socity"),
+      onChanged: (String newValue){
+        setState((){
+          this._currentItem = newValue;
+        });
+      },
+    );
+
     final registerButon = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(30.0),
@@ -80,6 +99,10 @@ class _MyRegisterPageState extends State<MyRegisterPage> {
                   height: 35.0,
                 ),
                 phoneField,
+                SizedBox(
+                  height: 35.0,
+                ),
+                dropDown,
                 SizedBox(
                   height: 35.0,
                 ),
